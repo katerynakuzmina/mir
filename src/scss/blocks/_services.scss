@@ -1,0 +1,109 @@
+.services {
+    padding-top: 100px;
+    &__tabs {
+        min-height: 660px;
+        display: flex;
+        margin-top: 29px;
+    }
+    &__tab {
+        padding: 31px 16px 40px 16px;
+        position: relative;
+        width: 368px;
+        height: 469px;
+        border-radius: 15px;
+        margin-right: 16px;
+        &_active {
+            background: #EFF4FF;
+        }
+        &_descr {
+            color: $descr_dark;
+            margin-top: 25px;
+            line-height: 130%;
+            flex-shrink: 0;
+            font-weight: 400;
+        }
+        &_list {
+            margin-top: 16px;
+            margin-left: 27px;
+            color: $descr-dark;
+            li {
+                margin-top: 0;
+                &:before {
+                    opacity: 1;
+                }
+            }
+        }
+        &_footer {
+            position: absolute;
+            bottom: 30px;            
+        }
+        &_inner {
+            margin-top: 20px;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        &_price {
+            font-size: 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-right: 40px;
+        }
+    }
+    &__btn {
+        text-transform: uppercase;
+        color: $darkblue;
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+    }
+
+    &__sliders {
+        padding-top: 76px;
+        background-color: $lightblue;
+        height: 711px;
+        &_header {
+            width: 876px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+        }
+        &_close {
+            display: flex;
+            width: 97px;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+    &__close {
+        font-size: 24px;
+        cursor: pointer;
+    }
+    &__sliders {
+        position: relative;
+        overflow: hidden;
+        &_hidden {
+            display: none;
+        }
+    }
+    &__slider {
+        position: relative;
+        display: none;
+        &_active {
+            display: block;
+        }
+        &_item {
+            
+            img {
+                width: 697px;
+                height: 392px;
+                &:hover {
+                    transform: scale(1.15);
+                }
+            }
+        }
+    }
+    
+}
+

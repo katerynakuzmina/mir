@@ -1,0 +1,19 @@
+.benefits {
+    padding-top: 100px;
+    min-height: 775px;
+    background: url('../img/third_screen.jpg')center center/cover no-repeat;
+    &__descr {
+        margin-top: 60px;
+        width: 768px;
+        color: $descr_light;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 130%;
+        margin-bottom: 10px;
+    }
+    &__wrapper {        
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+}

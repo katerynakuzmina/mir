@@ -1,0 +1,45 @@
+.btn {
+    width: 219px;
+    height: 52px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: transparent;
+    border-radius: 48px;
+    border: 1px solid $white;
+    text-transform: uppercase;
+    color: $white;
+    text-align: center;
+    &:hover {
+        box-shadow: 3px 3px 20px $descr-light;
+    }
+    &_promo {
+        background-color: $white;
+        color: $darkblue;
+        border: none;
+        margin-top: 27px;
+    }
+    &_promo-down {
+        background: var(--gra, linear-gradient(74deg, #34B6B3 0%, #562383 100%));
+        box-shadow: 0px 4px 30px 0px rgba(21, 33, 79, 0.27);
+        border: none;
+        position: absolute;
+        right: 0;
+        bottom: -173px;
+    }
+    &_about {
+        position: absolute;
+        left: 0;
+        top: 190px;
+        background-color: $darkblue;
+        border: none;
+        color: $white;
+        &:hover {
+            box-shadow: 3px 3px 20px $descr-dark;
+        }
+    }
+    &_tab {
+        border: 1px solid $darkblue;
+        color: $darkblue;
+        width: 172px;
+    }
+}

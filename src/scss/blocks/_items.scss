@@ -1,0 +1,24 @@
+.item {
+    margin-top: 30px;
+    width: 363px;
+    height: 143px;
+    margin-right: 12px;
+    &-areas {
+        width: 268px;
+        height: auto;
+    }
+    &-exp {
+        width: 359px;
+        height: auto;
+    }
+    &_descr {
+        color: $descr_light;
+        margin-top: 25px;
+        line-height: 130%;
+        flex-shrink: 0;
+        font-weight: 400;
+        &-exp {
+            color: $descr_dark;
+        }
+    }
+}

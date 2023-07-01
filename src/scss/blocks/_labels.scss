@@ -1,0 +1,23 @@
+.label {
+    padding: 14px 40px 14px 40px;
+    width: auto;
+    height: 52px;
+    font-size: 18px;
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+    background-color: transparent;
+    border-radius: 48px;
+    border: 1px solid $darkblue;
+    text-transform: uppercase;
+    color: $darkblue;
+    text-align: center;
+    margin-left: 8px;
+    margin-right: 8px;
+    &_exp {
+        display: inline-block;
+        font-size: 16px;
+        margin-bottom: 12px;
+        margin-left: 0;
+    }
+}

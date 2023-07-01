@@ -1,0 +1,13 @@
+.promo {
+    height: 741px;
+    background: url('../icons/main/main_screen.jpg')center center/cover no-repeat;
+    padding-top: 280px;
+    position: relative;
+    &__descr {
+        margin-top: 20px;
+        color: $descr-light;
+        font-size: 18px;
+        line-height: 130%;
+        width: 681px;
+    }
+}

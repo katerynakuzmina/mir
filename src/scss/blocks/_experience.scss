@@ -1,0 +1,43 @@
+.experience {
+    min-height: 723px;
+    padding-top: 100px;
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 60px;
+    }
+    &__wrapper {
+        margin-top: 28px;
+        display: flex;
+        justify-content: space-between;
+    }
+    &__labels {
+        width: 357px;
+        margin-right: 28px;
+    }
+    &__arrows {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__items {
+        display: flex;
+        flex-wrap: wrap;
+        li {
+            &:before {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__sliders {
+        overflow: hidden;
+    }
+
+    &__slider {
+        display: none;
+        &_active {
+            display: block;
+        }
+    }
+}

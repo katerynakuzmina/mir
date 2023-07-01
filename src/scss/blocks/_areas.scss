@@ -1,0 +1,11 @@
+.areas {
+    padding-top: 100px;
+    min-height: 911px;
+    background: url('../img/fourth_screen.jpg')center center/cover no-repeat;
+    &__wrapper {   
+        margin-top: 60px;     
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+}
