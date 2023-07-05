@@ -12,6 +12,13 @@ gulp.task("copy-html", () => {
 });
 
 
+gulp.task("copy-html-policy", () => {
+    return gulp.src("./src/policy.html")
+                .pipe(gulp.dest(dist))
+                .pipe(browsersync.stream());
+  });
+
+
 gulp.task("build-sass", () => {
     return gulp.src("./src/scss/**/*.scss")
                 .pipe(sass().on('error', sass.logError))
@@ -44,6 +51,7 @@ gulp.task("watch", () => {
     });
 
     gulp.watch("./src/index.html", gulp.parallel("copy-html"));
+    gulp.watch("./src/policy.html", gulp.parallel("copy-html-policy"));
     gulp.watch("./src/icons/**/*.*", gulp.parallel("copy-assets"));
     gulp.watch("./src/img/**/*.*", gulp.parallel("copy-assets"));
     gulp.watch("./src/scss/**/*.scss", gulp.parallel("build-sass"));
@@ -53,10 +61,12 @@ gulp.task("watch", () => {
 
 
 
-gulp.task("build", gulp.parallel("copy-html", "copy-assets", "build-sass", "build-js"));
+gulp.task("build", gulp.parallel("copy-html", "copy-html-policy", "copy-assets", "build-sass", "build-js"));
 
 gulp.task("prod", () => {
     gulp.src("./src/index.html")
+        .pipe(gulp.dest(dist));
+        gulp.src("./src/policy.html")
         .pipe(gulp.dest(dist));
     gulp.src("./src/img/**/*.*")
         .pipe(gulp.dest(dist + "/img"));

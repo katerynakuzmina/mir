@@ -1,0 +1,21 @@
+.recommend {
+    min-height: 805px;
+    background: linear-gradient(180deg, #000B1C 0%, #170C46 100%);
+    padding: 100px 0;
+    &__logos {
+        margin-top: 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    &__logo {
+        height: 106px;
+        margin-right: 14px;
+        margin-bottom: 5px;
+        img {
+            display: block;
+            transform: translateY(-50%);
+        }
+    }
+}

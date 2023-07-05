@@ -3,11 +3,12 @@
     margin: 0;
     padding: 0;
     font-family: 'Open Sans', sans-serif;
-    transition: 0.5s all;
+    transition: 0.8s all;
     scroll-behavior: smooth;
     font-weight: 500;
     font-size: 16px;
-    line-height: 100%;
+    line-height: 130%;
+    color: $descr-dark;
 }
 .container {
     width: 1129px;
@@ -44,6 +45,7 @@ button {
 li {
     position: relative;
     margin-bottom: 10px;
+    line-height: 100%;
     &:before {
         content: '';
         position: absolute;

@@ -1,0 +1,25 @@
+.contacts {
+    min-height: 714px;
+    padding: 100px 0;
+    &__wrapper {
+        display: flex;
+        justify-content: start;
+    }
+    &__email {
+        width: 368px;
+        margin-right: 112px;
+        &_descr {
+            margin-top: 20px;
+            a {
+                color: $descr-dark;
+            }
+        }
+    }
+    &__form {
+        width: 590px;
+        margin-left: 2px;
+        &_descr {
+            margin-bottom: 28px;
+        }
+    }
+}

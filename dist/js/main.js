@@ -37,37 +37,51 @@ window.addEventListener('DOMContentLoaded', () => {
           sliderContainer = document.querySelector('.services__sliders'),
           tabs = document.querySelectorAll('.services__tab'),
           prevButton = document.querySelector('.arrows__arrow-prev'),
-          nextButton = document.querySelector('.arrows__arrow-next');
-          
+          nextButton = document.querySelector('.arrows__arrow-next'),
+          closeButton = document.querySelector('.services__btn_close');
 
-    // По умолчанию активируем слайдер и таб "Быстрые решения"
-    sliders[0].classList.add('services__slider_active');
-    tabs[0].classList.add('services__tab_active');
 
-    let activeSlideIndex = 1;
-    let totalSlides = 1;
+    let tnsSliders = [];
 
-    const tnsSlider = tns({
-        container: sliders[0],
-        items: 2,
-        gutter: 50,
-        center: true,
-        autoWidth: true,
-        mouseDrag: true,
-        speed: 700,
-        prevButton: prevButton,
-        nextButton: nextButton,
-        onInit: function (info) {
-            activeSlideIndex = info.index + 1;
-            totalSlides = info.slideCount;
-            updateSliderCounter(activeSlideIndex, totalSlides);
-        },
-        onIndexChanged: function (info) {
-            activeSlideIndex = info.index + 1;
-            updateSliderCounter(activeSlideIndex, totalSlides);
-        }
+    function initializeSlider(index = 0) {
+        sliders[index].classList.add('services__slider_active');
+        tabs[index].classList.add('services__tab_active');
+
+        tnsSliders[index] = tns({
+            container: sliders[index],
+            items: 2,
+            gutter: 50,
+            center: true,
+            autoWidth: true,
+            mouseDrag: true,
+            speed: 1000,
+            prevButton: prevButton,
+            nextButton: nextButton, 
+            responsive: {
+                640: {
+                  edgePadding: 20,
+                  gutter: 20,
+                  items: 1
+                },
+                700: {
+                  gutter: 30
+                },
+                900: {
+                  items: 2
+                }
+              }
+        });
+    }
+
+    initializeSlider();
+
+    
+    closeButton.addEventListener('click', () => {
+        sliderContainer.classList.add('services__sliders_hidden');
+        detailButtons.forEach(button => {
+            button.textContent = 'Подробнее';
+        });
     });
-
     // Добавляем обработчик события для каждой кнопки "Подробнее"
     detailButtons.forEach(function(button, index) {
         button.addEventListener('click', function() {
@@ -78,6 +92,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 button.textContent = 'Подробнее';
             } else {
             // Скрываем все слайдеры и снимаем активный класс с табов
+                
                 sliders.forEach(function(slider) {
                     slider.classList.remove('services__slider_active');
                 });
@@ -90,30 +105,11 @@ window.addEventListener('DOMContentLoaded', () => {
                 sliders[index].classList.add('services__slider_active');
                 tabs[index].classList.add('services__tab_active');
 
-                
-                // Инициализируем только выбранный слайдер Tiny Slider с обновленными значениями
-                
 
-                const tnsSlider = tns({
-                    container: sliders[index],
-                    items: 2,
-                    gutter: 50,
-                    center: true,
-                    autoWidth: true,
-                    mouseDrag: true,
-                    speed: 700,
-                    prevButton: prevButton,
-                    nextButton: nextButton,
-                    onInit: function (info) {
-                        activeSlideIndex = info.index + 1;
-                        totalSlides = info.slideCount;
-                        updateSliderCounter(activeSlideIndex, totalSlides);
-                    },
-                    onIndexChanged: function (info) {
-                        activeSlideIndex = info.index + 1;
-                        updateSliderCounter(activeSlideIndex, totalSlides);
-                    }
-                });
+                initializeSlider(index);
+                
+                
+                
                 updateButtonText();
 
                 // Скрываем блок с слайдерами
@@ -145,5 +141,105 @@ window.addEventListener('DOMContentLoaded', () => {
       
 
 
+
+
+
     
+    //slider #2
+
+    const slidersExp = document.querySelector('.experience__sliders'),
+          prevButtonExp = document.querySelector('.arrows__arrow-prev-exp'),
+          nextButtonExp = document.querySelector('.arrows__arrow-next-exp');
+
+          const tnsSliderExp = tns({
+            container: slidersExp,
+            items: 1,
+            center: true,
+            mouseDrag: true,
+            speed: 1000,
+            prevButton: prevButtonExp,
+            nextButton: nextButtonExp
+        });
+
+
+        // slider 3
+
+        
+
+
+    function initializeSliderLast() {
+        const slidersLast = document.querySelector('.lastslider__slider'),
+              sliderContainerLast = document.querySelector('.lastslider__sliders'),
+              closeButton = document.querySelector('.lastslider__btn'),
+              prevButtonLast = document.querySelector('.lastslider__arrow-prev'),
+              nextButtonLast = document.querySelector('.lastslider__arrow-next');
+
+
+        tnsSliders = tns({
+            container: slidersLast,
+            items: 2,
+            gutter: 50,
+            center: true,
+            autoWidth: true,
+            mouseDrag: true,
+            speed: 1000,
+            prevButton: prevButtonLast,
+            nextButton: nextButtonLast, 
+            responsive: {
+                640: {
+                  edgePadding: 20,
+                  gutter: 20,
+                  items: 1
+                },
+                700: {
+                  gutter: 30
+                },
+                900: {
+                  items: 2
+                }
+              }
+        });
+
+        closeButton.addEventListener('click', () => {
+            sliderContainerLast.classList.add('lastslider__sliders_hidden');
+        });
+    }
+
+    initializeSliderLast();
+
+    //modal
+    const containerModal = document.querySelector('.overlay'),
+          consultation = document.querySelector('#consultation'),
+          thanks = document.querySelector('#thanks'),
+          closeModal = document.querySelector('.modal__close'),
+          buttonSubmit = document.querySelector('.btn_modal'),
+          buttonsConsultation = document.querySelectorAll('[data-modal=consultation]');
+
+    function fadeInModal() {
+        buttonsConsultation.forEach(button => {
+            button.addEventListener('click', () => {
+                containerModal.style.display = 'block';
+                consultation.style.display = 'block';
+            });
+        });
+    }
+
+    closeModal.addEventListener('click', () => {
+        closeOverlay();
+    })
+
+    function fadeOutModal() {
+        buttonSubmit.addEventListener('click', () => {
+            thanks.style.display = 'block';
+            consultation.style.display = 'none';
+            const closeModal = setTimeout(closeOverlay, 2000);
+        });
+    }
+
+    function closeOverlay() {
+        containerModal.style.display = 'none';
+    }
+    fadeOutModal();
+   
+    fadeInModal();
 });

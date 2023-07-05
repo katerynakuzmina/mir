@@ -1,7 +1,6 @@
 .services {
     padding-top: 100px;
     &__tabs {
-        min-height: 660px;
         display: flex;
         margin-top: 29px;
     }
@@ -57,36 +56,45 @@
         font-size: 16px;
         font-weight: 700;
         cursor: pointer;
+        &_close {
+            &:hover {
+                color: #19D2CE;
+            }
+        }
     }
 
     &__sliders {
-        padding-top: 76px;
+        padding-top: 86px;
         background-color: $lightblue;
         height: 711px;
+        position: relative;
+        overflow: hidden;
         &_header {
             width: 876px;
             margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
+            position: relative;
+        }
+        &__wrapper {
+            position: relative;
         }
         &_close {
+            position: absolute;
+            right: 0;
+            top: -20px;
             display: flex;
             width: 97px;
             justify-content: space-between;
             align-items: center;
+        }
+        &_hidden {
+            display: none;
         }
     }
     &__close {
         font-size: 24px;
         cursor: pointer;
     }
-    &__sliders {
-        position: relative;
-        overflow: hidden;
-        &_hidden {
-            display: none;
-        }
-    }
+   
     &__slider {
         position: relative;
         display: none;

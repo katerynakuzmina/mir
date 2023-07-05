@@ -1,0 +1,49 @@
+.footer {
+    padding: 36px 0;
+    font-size: 16px;
+    font-weight: 600;
+    background: linear-gradient(180deg, #000B1C 0%, #170C46 100%);
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__menu {
+        display: flex;
+        justify-content: end;
+        margin-left: 0px;
+        &-item {
+            margin-left: 44px;
+            a {
+                text-transform: uppercase;
+                color: $white;
+                font-size: 16px;
+                font-weight: 300px;
+                position: relative;
+                &:before {
+                    content: '';
+                    position: absolute;
+                    bottom: -5px;
+                    width: 90%;
+                    height: 1px;
+                    background-color: $white;
+                    transition: 0.4s all;
+                    opacity: 0;
+                }
+                &:hover {
+                    &:before {
+                        opacity: 1;
+                        width: 90%;
+                    }
+                }
+            }
+            
+        }
+    }
+    &__info {
+        p {
+            color: $descr-light;
+            text-align: right;
+        }
+    }
+}

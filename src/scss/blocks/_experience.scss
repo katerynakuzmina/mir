@@ -1,6 +1,6 @@
 .experience {
     min-height: 723px;
-    padding-top: 100px;
+    padding: 100px 0;
     &__header {
         display: flex;
         justify-content: space-between;
@@ -32,12 +32,13 @@
 
     &__sliders {
         overflow: hidden;
+        margin-left: 5px;
     }
 
-    &__slider {
-        display: none;
-        &_active {
-            display: block;
-        }
-    }
+    // &__slider {
+    //     display: none;
+    //     &_active {
+    //         display: block;
+    //     }
+    // }
 }

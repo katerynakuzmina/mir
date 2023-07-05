@@ -1,6 +1,5 @@
 .btn {
-    width: 219px;
-    height: 52px;
+    padding: 14px 40px;
     font-size: 18px;
     font-weight: 600;
     background-color: transparent;
@@ -25,9 +24,11 @@
         position: absolute;
         right: 0;
         bottom: -173px;
+        width: 220px;
     }
     &_about {
         position: absolute;
+        width: 220px;
         left: 0;
         top: 190px;
         background-color: $darkblue;
@@ -41,5 +42,22 @@
         border: 1px solid $darkblue;
         color: $darkblue;
         width: 172px;
+    }
+    &_form {
+        background-color: $darkblue;
+        border: none;
+        color: $white;
+        &:hover {
+            box-shadow: 3px 3px 20px $descr-dark;
+        }
+    }
+    &_modal {
+        background-color: $darkblue;
+        border: none;
+        color: $white;
+        text-align: center;
+        &:hover {
+            box-shadow: 3px 3px 20px $descr-dark;
+        }
     }
 }
