@@ -208,30 +208,34 @@ window.addEventListener('DOMContentLoaded', () => {
     initializeSliderLast();
 
     //modal
-    const containerModal = document.querySelector('.overlay'),
+    function modalFunctions() {
+        const containerModal = document.querySelector('.overlay'),
           consultation = document.querySelector('#consultation'),
           thanks = document.querySelector('#thanks'),
           closeModal = document.querySelector('.modal__close'),
           buttonSubmit = document.querySelector('.btn_modal'),
           buttonsConsultation = document.querySelectorAll('[data-modal=consultation]');
 
+        consultation.classList.add('hidden');
+        thanks.classList.add('hidden');
+
     function fadeInModal() {
         buttonsConsultation.forEach(button => {
             button.addEventListener('click', () => {
                 containerModal.style.display = 'block';
-                consultation.style.display = 'block';
+                consultation.classList.add('shown');
             });
         });
     }
 
     closeModal.addEventListener('click', () => {
         closeOverlay();
-    })
+    });
 
     function fadeOutModal() {
         buttonSubmit.addEventListener('click', () => {
-            thanks.style.display = 'block';
-            consultation.style.display = 'none';
+            thanks.classList.add('shown');
+            consultation.classList.add('hidden');
             const closeModal = setTimeout(closeOverlay, 2000);
         });
     }
@@ -242,4 +246,7 @@ window.addEventListener('DOMContentLoaded', () => {
     fadeOutModal();
    
     fadeInModal();
+    }
+
+    modalFunctions();
 });

@@ -63,11 +63,11 @@ li:before {
 }
 
 .hidden {
-  display: none;
+  opacity: 0;
 }
 
 .shown {
-  display: block;
+  opacity: 1;
 }
 
 .header {
@@ -89,10 +89,10 @@ li:before {
 .header__menu {
   display: flex;
   justify-content: end;
-  margin-left: 40px;
+  margin-left: 30px;
 }
 .header__menu-item {
-  margin-left: 38px;
+  margin-left: 30px;
 }
 .header__menu-item a {
   text-transform: uppercase;
@@ -132,7 +132,7 @@ li:before {
 
 .btn {
   padding: 14px 40px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   background-color: transparent;
   border-radius: 48px;
@@ -302,6 +302,7 @@ li:before {
   width: 100%;
   height: 100%;
   background: linear-gradient(360deg, #FFF 80%, rgba(255, 255, 255, 0) 100%);
+  transition: all 0.9s;
 }
 .about__line {
   display: flex;
@@ -814,9 +815,9 @@ li:before {
 }
 
 .policy {
-  background-color: #1B0D43;
+  background-color: #D4C3FF;
   padding-top: 100px;
-  color: #D4C3FF;
+  color: #1B0D43;
 }
 
 .overlay {
@@ -826,6 +827,7 @@ li:before {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.56);
+  transition: 0.5s all;
 }
 
 .modal {
@@ -837,6 +839,7 @@ li:before {
   min-height: 400px;
   background-color: #f2f2f2;
   padding: 38px 40px 40px 40px;
+  transition: 0.5s all;
 }
 .modal__close {
   position: absolute;
@@ -875,18 +878,38 @@ li:before {
 .feed-form input {
   height: 50px;
   border-radius: 5px;
-  background: #FFFFFF;
+  background: white;
   margin-bottom: 15px;
   border: none;
   padding: 0 20px;
   font-weight: 400;
   font-size: 14px;
-  color: #4B4B4B;
+  color: #1B0D43;
 }
 .feed-form input:nth-child(3) {
   margin-bottom: 20px;
 }
 
-#consultation, #thanks {
-  display: none;
+.blog {
+  background-color: #D4C3FF;
+  padding-top: 100px;
+  color: #1B0D43;
+}
+.blog__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.blog__item {
+  width: 300px;
+  height: 350px;
+}
+.blog__item_img {
+  width: 100%;
+  height: 40%;
+}
+.blog__item_img img {
+  width: 100%;
+  height: 100%;
 }
