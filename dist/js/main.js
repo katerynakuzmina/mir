@@ -6,7 +6,7 @@ window.addEventListener('DOMContentLoaded', () => {
     overlay.classList.add('shown');
 
     function closeOverlay() {
-        overlay.classList.add('hidden');
+        overlay.classList.add('hide');
         overlay.classList.remove('shown');
         btnAbout.style.position = 'relative';
         btnAbout.style.top = '30px';
@@ -15,7 +15,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     function openOverlay() {
         overlay.classList.add('shown');
-        overlay.classList.remove('hidden');
+        overlay.classList.remove('hide');
         btnAbout.style.position = 'absolute';
         btnAbout.style.top = '190px';
         btnAbout.innerHTML = 'Подробнее';
@@ -138,12 +138,6 @@ window.addEventListener('DOMContentLoaded', () => {
         currentElement.textContent = activeSlideIndex.toString().padStart(2, '0');
         totalElement.textContent = totalSlides.toString().padStart(2, '0');
     }
-      
-
-
-
-
-
     
     //slider #2
 
@@ -208,45 +202,44 @@ window.addEventListener('DOMContentLoaded', () => {
     initializeSliderLast();
 
     //modal
-    function modalFunctions() {
-        const containerModal = document.querySelector('.overlay'),
-          consultation = document.querySelector('#consultation'),
-          thanks = document.querySelector('#thanks'),
-          closeModal = document.querySelector('.modal__close'),
-          buttonSubmit = document.querySelector('.btn_modal'),
-          buttonsConsultation = document.querySelectorAll('[data-modal=consultation]');
+    
 
-        consultation.classList.add('hidden');
-        thanks.classList.add('hidden');
+    const containerModal = document.querySelector('.overlay'),
+        consultation = document.querySelector('#consultation'),
+        thanks = document.querySelector('#thanks'),
+        btnCloseModal = document.querySelector('.modal__close'),
+        buttonSubmit = document.querySelector('.btn_modal'),
+        buttonsConsultation = document.querySelectorAll('[data-modal=consultation]');
 
-    function fadeInModal() {
-        buttonsConsultation.forEach(button => {
-            button.addEventListener('click', () => {
-                containerModal.style.display = 'block';
-                consultation.classList.add('shown');
-            });
-        });
+    function openModal() {
+        containerModal.style.visibility = 'visible';
+        containerModal.classList.add('show');
+        consultation.classList.add('show');
+        document.body.style.overflow = 'hidden';
     }
-
-    closeModal.addEventListener('click', () => {
-        closeOverlay();
+    
+    buttonsConsultation.forEach(button => {
+        button.addEventListener('click', openModal)
     });
 
-    function fadeOutModal() {
-        buttonSubmit.addEventListener('click', () => {
-            thanks.classList.add('shown');
-            consultation.classList.add('hidden');
-            const closeModal = setTimeout(closeOverlay, 2000);
-        });
-    }
+    btnCloseModal.addEventListener('click', closeModal);
 
-    function closeOverlay() {
-        containerModal.style.display = 'none';
-    }
-    fadeOutModal();
-   
-    fadeInModal();
-    }
+    buttonSubmit.addEventListener('click', showThanksModal);
 
-    modalFunctions();
+    function closeModal() {
+        document.body.style.overflow = '';
+        containerModal.style.visibility = 'hidden';
+        containerModal.classList.remove('show');
+        consultation.classList.remove('show');
+    }
+    function showThanksModal() {
+        consultation.classList.remove('show');
+        thanks.classList.add('show');
+        
+        setTimeout(() => {
+            thanks.remove();
+            consultation.classList.add('show');
+            closeModal();
+        }, 4000);
+    }
 });

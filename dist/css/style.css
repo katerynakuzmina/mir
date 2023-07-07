@@ -62,7 +62,7 @@ li:before {
   opacity: 0;
 }
 
-.hidden {
+.hide {
   opacity: 0;
 }
 
@@ -114,6 +114,10 @@ li:before {
 .header__menu-item a:hover:before {
   opacity: 1;
   width: 90%;
+}
+.header_background {
+  height: 110px;
+  background: linear-gradient(180deg, #000B1C 0%, #170C46 100%);
 }
 
 .promo {
@@ -467,7 +471,7 @@ li:before {
   position: absolute;
   left: 500px;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-100%);
   z-index: 10;
 }
 .arrows__arrow-prev-exp, .arrows__arrow-next-exp {
@@ -815,22 +819,23 @@ li:before {
 }
 
 .policy {
-  background-color: #D4C3FF;
   padding-top: 100px;
   color: #1B0D43;
 }
 
 .overlay {
-  display: none;
+  visibility: hidden;
   position: fixed;
+  opacity: 0;
   top: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.56);
-  transition: 0.5s all;
+  transition: opacity 0.8s 0.2s;
 }
 
 .modal {
+  opacity: 0;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -839,7 +844,7 @@ li:before {
   min-height: 400px;
   background-color: #f2f2f2;
   padding: 38px 40px 40px 40px;
-  transition: 0.5s all;
+  transition: opacity 0.8s;
 }
 .modal__close {
   position: absolute;
@@ -890,8 +895,15 @@ li:before {
   margin-bottom: 20px;
 }
 
+.show {
+  opacity: 1;
+}
+
+.hidden {
+  opacity: 0;
+}
+
 .blog {
-  background-color: #D4C3FF;
   padding-top: 100px;
   color: #1B0D43;
 }

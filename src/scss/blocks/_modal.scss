@@ -1,13 +1,15 @@
 .overlay {
-    display: none;
+    visibility: hidden;
     position: fixed;
+    opacity: 0;
     top: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, .56);
-    transition: 0.5s all;
+    transition: opacity 0.8s 0.2s;
 }
 .modal {
+    opacity: 0;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -16,7 +18,7 @@
     min-height: 400px;
     background-color: #f2f2f2;
     padding: 38px 40px 40px 40px;
-    transition: 0.5s all;
+    transition: opacity 0.8s;
     &__close {
         position: absolute;
         top: 0;
@@ -73,4 +75,12 @@
             margin-bottom: 20px;
         }
     }
+}
+
+.show {
+    opacity: 1;
+}
+
+.hidden {
+    opacity: 0;
 }
