@@ -160,11 +160,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
         
 
-
-    function initializeSliderLast() {
         const slidersLast = document.querySelector('.lastslider__slider'),
               sliderContainerLast = document.querySelector('.lastslider__sliders'),
-              closeButton = document.querySelector('.lastslider__btn'),
+              closeButtonLast = document.querySelector('.lastslider__btn'),
               prevButtonLast = document.querySelector('.lastslider__arrow-prev'),
               nextButtonLast = document.querySelector('.lastslider__arrow-next');
 
@@ -194,20 +192,15 @@ window.addEventListener('DOMContentLoaded', () => {
               }
         });
 
-        closeButton.addEventListener('click', () => {
+        closeButtonLast.addEventListener('click', () => {
             sliderContainerLast.classList.add('lastslider__sliders_hidden');
         });
-    }
-
-    initializeSliderLast();
+    
 
     //modal
     
-
     const containerModal = document.querySelector('.overlay'),
         consultation = document.querySelector('#consultation'),
-        thanks = document.querySelector('#thanks'),
-        btnCloseModal = document.querySelector('.modal__close'),
         buttonSubmit = document.querySelector('.btn_modal'),
         buttonsConsultation = document.querySelectorAll('[data-modal=consultation]');
 
@@ -222,24 +215,38 @@ window.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('click', openModal)
     });
 
-    btnCloseModal.addEventListener('click', closeModal);
+    containerModal.addEventListener('click', closeModal);
 
-    buttonSubmit.addEventListener('click', showThanksModal);
+    buttonSubmit.addEventListener('click', (event) => {
+        event.preventDefault();
+        consultation.classList.remove('show');
+        const thanksModal = document.createElement('div');
+        thanksModal.innerHTML = `
+        <div class="modal modal_mini" id="thanks">
+        <div class="modal__close">&times;</div>
+        <div class="modal__subtitle">Спасибо за вашу заявку!</div>
+        <div class="modal__descr">Наш менеджер свяжется с вами  <br> в ближайшее время!</div>
+            </div>
+        `
+        containerModal.append(thanksModal)
+        setTimeout(() => {
+            onClose()
+            thanksModal.remove()
+        }, 3000);
+    });
 
-    function closeModal() {
+    function closeModal(event) {
+        if (event.target.classList.contains('modal__close')) {
+            onClose()
+        }
+    }
+
+    function onClose() {
         document.body.style.overflow = '';
         containerModal.style.visibility = 'hidden';
         containerModal.classList.remove('show');
-        consultation.classList.remove('show');
+        consultation.classList.remove('show');   
     }
-    function showThanksModal() {
-        consultation.classList.remove('show');
-        thanks.classList.add('show');
-        
-        setTimeout(() => {
-            thanks.remove();
-            consultation.classList.add('show');
-            closeModal();
-        }, 4000);
-    }
+
+    
 });

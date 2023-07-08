@@ -1,5 +1,4 @@
 .lastslider {
-    padding-top: 100px;
     &__btn {
         text-transform: uppercase;
         color: $darkblue;
@@ -14,7 +13,7 @@
     &__sliders {
         padding-top: 86px;
         background-color: $lightblue;
-        height: 711px;
+        height: 610px;
         position: relative;
         overflow: hidden;
         &_hidden {
