@@ -1,4 +1,5 @@
 .services {
+    overflow: hidden;
     padding-top: 100px;
     &__tabs {
         display: flex;
@@ -66,7 +67,7 @@
     &__sliders {
         padding-top: 86px;
         background-color: $lightblue;
-        height: 711px;
+        height: 611px;
         position: relative;
         overflow: hidden;
         &_header {
@@ -98,6 +99,7 @@
     &__slider {
         position: relative;
         display: none;
+        margin-top: 20px;
         &_active {
             display: block;
         }

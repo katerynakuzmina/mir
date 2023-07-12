@@ -40,8 +40,7 @@ window.addEventListener('DOMContentLoaded', () => {
           nextButton = document.querySelector('.arrows__arrow-next'),
           closeButton = document.querySelector('.services__btn_close');
 
-
-    let tnsSliders = [];
+          let tnsSliders = [];
 
     function initializeSlider(index = 0) {
         sliders[index].classList.add('services__slider_active');
@@ -54,28 +53,29 @@ window.addEventListener('DOMContentLoaded', () => {
             center: true,
             autoWidth: true,
             mouseDrag: true,
+            nav: false,
             speed: 1000,
             prevButton: prevButton,
-            nextButton: nextButton, 
+            nextButton: nextButton,
             responsive: {
                 640: {
-                  edgePadding: 20,
-                  gutter: 20,
-                  items: 1
+                    edgePadding: 20,
+                    gutter: 20,
+                    items: 1
                 },
                 700: {
-                  gutter: 30
+                    gutter: 30
                 },
                 900: {
-                  items: 2
+                    items: 2
                 }
-              }
+            }
         });
     }
 
     initializeSlider();
 
-    
+
     closeButton.addEventListener('click', () => {
         sliderContainer.classList.add('services__sliders_hidden');
         detailButtons.forEach(button => {
@@ -83,33 +83,40 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     });
     // Добавляем обработчик события для каждой кнопки "Подробнее"
-    detailButtons.forEach(function(button, index) {
-        button.addEventListener('click', function() {
-             // Если слайдер уже активен, скрываем его и показываем блок
+    detailButtons.forEach(function (button, index) {
+        button.addEventListener('click', function () {
+            // Если слайдер уже активен, скрываем его и показываем блок
             if (sliders[index].classList.contains('services__slider_active')) {
                 sliders[index].classList.remove('services__slider_active');
                 sliderContainer.classList.add('services__sliders_hidden');
                 button.textContent = 'Подробнее';
             } else {
-            // Скрываем все слайдеры и снимаем активный класс с табов
-                
-                sliders.forEach(function(slider) {
+                // Скрываем все слайдеры и снимаем активный класс с табов
+
+                sliders.forEach(function (slider) {
                     slider.classList.remove('services__slider_active');
                 });
 
-                tabs.forEach(function(tab) {
+                tabs.forEach(function (tab) {
                     tab.classList.remove('services__tab_active');
-                });            
+                });
 
                 // Показываем соответствующий слайдер и активируем выбранный таб
                 sliders[index].classList.add('services__slider_active');
                 tabs[index].classList.add('services__tab_active');
 
 
-                initializeSlider(index);
-                
-                
-                
+                if (tnsSliders[index]) {
+                    // tnsSliders[index].destroy();
+                    // tnsSliders[index] = tnsSliders[index].rebuild();
+                    tnsSliders[index].refresh();
+                    
+                } else {
+                    initializeSlider(index);
+                }
+
+
+
                 updateButtonText();
 
                 // Скрываем блок с слайдерами
@@ -147,6 +154,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
           const tnsSliderExp = tns({
             container: slidersExp,
+			nav: false,
             items: 1,
             center: true,
             mouseDrag: true,
@@ -167,8 +175,9 @@ window.addEventListener('DOMContentLoaded', () => {
               nextButtonLast = document.querySelector('.lastslider__arrow-next');
 
 
-        tnsSliders = tns({
+        const tnsSlider = tns({
             container: slidersLast,
+			nav: false,
             items: 2,
             gutter: 50,
             center: true,
@@ -250,3 +259,4 @@ window.addEventListener('DOMContentLoaded', () => {
 
     
 });
+

@@ -29,7 +29,7 @@
         <div class="container">
             <div class="header__wrapper">
                 <div class="header_logo">
-                    <a href="#"><img src="icons/main/logo.png" alt="logo"></a>
+                    <a href="#"><img src="icons/logo.png" alt="logo"></a>
                 </div>
                 <nav>
                     <ul class="header__menu">
@@ -54,7 +54,10 @@
 
                     </ul>
                 </nav>
-            <button data-modal="consultation" class="btn btn_header">Заказать звонок</button>
+            <button data-modal="consultation" class="btn m-hidden">Заказать звонок</button>
+            <button data-modal="consultation" class="btn m-visible">
+                <img src="icons/phone.png" alt="phone">
+            </button>
             </div>
         </div>
     </header>
@@ -303,12 +306,14 @@
                 <div class="services__slider_item"><img src="img/global/global3.png" alt="slide"></div>
                 <div class="services__slider_item"><img src="img/global/global4.png" alt="slide"></div>
             </div>
-            <div class="arrows__arrow-prev">
-                <img src="icons/arrow-prev.png" alt="Previous">
-            </div>
-              
-            <div class="arrows__arrow-next">
-                <img src="icons/arrow-next.png" alt="Next">
+            <div class="arrows">
+                <div class="arrows__arrow-prev">
+                    <img src="icons/arrow-prev.png" alt="Previous">
+                </div>
+                  
+                <div class="arrows__arrow-next">
+                    <img src="icons/arrow-next.png" alt="Next">
+                </div>
             </div>
         </div>
     </section>
@@ -680,12 +685,14 @@
                 </div>
                 
             </div>
-            <div class="lastslider__arrow-prev">
-                <img src="icons/arrow-prev.png" alt="Previous">
-            </div>
-              
-            <div class="lastslider__arrow-next">
-                <img src="icons/arrow-next.png" alt="Next">
+            <div class="lastslider__arrows">
+                <div class="lastslider__arrow-prev">
+                    <img src="icons/arrow-prev.png" alt="Previous">
+                </div>
+                  
+                <div class="lastslider__arrow-next">
+                    <img src="icons/arrow-next.png" alt="Next">
+                </div>
             </div>
         </div>
 
@@ -829,9 +836,7 @@
        
     </div>
 
-    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script src="js/slick.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
     <script src="js/main.js"></script>
 </body>

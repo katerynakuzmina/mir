@@ -8,6 +8,10 @@
     text-transform: uppercase;
     color: $white;
     text-align: center;
+    img {
+        width: 22px;
+        height: 22px;
+    }
     &:hover {
         box-shadow: 3px 3px 20px $descr-light;
     }

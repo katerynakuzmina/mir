@@ -1,4 +1,14 @@
 .arrows {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    height: 52px;
+    width: 876px;
+    top:50%;
+    transform: translateY(-100%);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 7;
     &__arrow-prev, &__arrow-next {
         width: 101px;
         height: 52px;
@@ -6,11 +16,7 @@
         border-radius: 43px;
         border: 1px solid var(--blue-dark, #1B0D43);
         background: rgba(255, 255, 255, 0.80);
-        position: absolute;
-        left: 500px;
-        top:50%;
-        transform: translateY(-100%);
-        z-index: 7;
+        
         &-exp {
             position: inherit;
             left: 0;
@@ -20,8 +26,6 @@
         } 
     }
     &__arrow-next {
-        right: 500px;
-        left: auto;
         &-exp {
             position: inherit;
             left: 0;

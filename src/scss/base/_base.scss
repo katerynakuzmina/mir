@@ -5,10 +5,15 @@
     font-family: 'Open Sans', sans-serif;
     transition: 0.8s all;
     scroll-behavior: smooth;
-    font-weight: 500;
+    font-weight: 400;
     font-size: 16px;
     line-height: 130%;
-    color: $descr-dark;
+    color: $descr-dark;    
+}
+
+
+.m-visible {
+    display: none;
 }
 
 .container {
