@@ -74,6 +74,19 @@ li:before {
   opacity: 1;
 }
 
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .header {
   height: 52px;
   position: absolute;
@@ -102,7 +115,7 @@ li:before {
   text-transform: uppercase;
   color: white;
   font-size: 16px;
-  font-weight: 300px;
+  font-weight: 300;
   position: relative;
 }
 .header__menu-item a:before {
@@ -211,7 +224,6 @@ li:before {
   font-size: 40px;
   font-weight: 600;
   color: #1B0D43;
-  width: 809px;
 }
 .title_white {
   color: white;
@@ -232,6 +244,7 @@ li:before {
   font-size: 64px;
   line-height: 110%;
   color: white;
+  width: 809px;
 }
 .title_promo span {
   font-weight: 400;
@@ -240,6 +253,7 @@ li:before {
 }
 .title_contacts {
   margin-bottom: 24px;
+  width: 100%;
 }
 
 .about {
@@ -510,7 +524,7 @@ li:before {
 .label {
   padding: 14px 40px 14px 40px;
   width: auto;
-  height: 52px;
+  height: auto;
   font-size: 18px;
   font-weight: 600;
   white-space: nowrap;
@@ -520,7 +534,7 @@ li:before {
   border: 1px solid #1B0D43;
   text-transform: uppercase;
   color: #1B0D43;
-  text-align: center;
+  text-align: start;
   margin-left: 8px;
   margin-right: 8px;
 }
@@ -597,20 +611,17 @@ li:before {
   padding: 100px 0;
 }
 .recommend__logos {
-  margin-top: 100px;
+  width: 100%;
+  height: 501px;
+  margin-top: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
 }
-.recommend__logo {
-  height: 106px;
+.recommend__logos img {
   margin-right: 14px;
   margin-bottom: 5px;
-}
-.recommend__logo img {
-  display: block;
-  transform: translateY(-50%);
 }
 
 .form {
@@ -947,9 +958,6 @@ li:before {
 }
 
 @media (max-width: 1200px) {
-  * {
-    font-size: 14px;
-  }
   .header_logo a img {
     width: 180px;
     height: 26px;
@@ -957,13 +965,6 @@ li:before {
   .promo {
     padding-top: 221px;
     height: 606px;
-  }
-  .title_promo {
-    font-size: 48px;
-    width: 514px;
-  }
-  .title_promo span {
-    font-size: 48px;
   }
   .m-hidden {
     display: none;
@@ -973,8 +974,127 @@ li:before {
   }
 }
 @media (max-width: 991px) {
+  * {
+    font-size: 14px;
+  }
   .container {
     width: 780px;
+  }
+  .header__menu-item {
+    margin-left: 19px;
+  }
+  .header__menu-item a {
+    font-size: 15px;
+  }
+  .btn {
+    padding: 11px 30px;
+  }
+  .btn_promo-down {
+    bottom: -131px;
+  }
+  .btn_tab {
+    width: 141px;
+  }
+  .divider {
+    margin: 16px auto 0 auto;
+  }
+  .title {
+    font-size: 32px;
+  }
+  .title_promo {
+    font-size: 48px;
+    width: 514px;
+  }
+  .title_promo span {
+    font-size: 48px;
+  }
+  .title_fz_18 {
+    font-size: 15px;
+    font-weight: 400;
+  }
+  .title_fz_24 {
+    font-size: 17px;
+  }
+  .about {
+    min-height: 872px;
+  }
+  .about__company_text {
+    margin-left: 41px;
+  }
+  .about__company_descr {
+    width: 439px;
+  }
+  .about__company_img img {
+    width: 300px;
+    height: 315px;
+  }
+  .about__wrapper {
+    grid-template: 160px 120px/repeat(2, 380px);
+    row-gap: 0;
+  }
+  .about__line {
+    margin-top: 20px;
+  }
+  .benefits {
+    padding-top: 80px;
+    min-height: 741px;
+  }
+  .benefits__descr {
+    margin-top: 50px;
+  }
+  .item {
+    width: 246px;
+  }
+  .item_descr {
+    margin-top: 16px;
+  }
+  .item-exp {
+    width: 236px;
+  }
+  .services {
+    padding-top: 80px;
+  }
+  .services__tabs {
+    margin-bottom: 80px;
+  }
+  .services__tab {
+    width: 252px;
+    height: 455px;
+    padding: 20px 12px;
+    margin-right: 12px;
+  }
+  .services__tab_price {
+    font-size: 16px;
+    margin-right: 6px;
+  }
+  .areas {
+    padding-top: 80px;
+    min-height: 970px;
+  }
+  .experience {
+    min-height: 744px;
+    padding: 89px 0 77px 0;
+  }
+  .experience__header {
+    margin-bottom: 50px;
+  }
+  .experience__labels {
+    width: 252px;
+  }
+  .label_exp {
+    white-space: wrap;
+  }
+  .recommend {
+    padding-top: 80px;
+    min-height: 589px;
+  }
+  .recommend__logos {
+    height: 341px;
+    padding: 0;
+  }
+  .recommend__logos img {
+    flex: 1 1 auto;
+    transform: scale(0.7);
   }
 }
 @media (max-width: 767px) {

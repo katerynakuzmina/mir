@@ -1,6 +1,8 @@
 window.addEventListener('DOMContentLoaded', () => {
     // overlay
-    const btnAbout = document.querySelector('.btn_about');
+    const btnAbout = document.querySelector('.btn_about'),
+         screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+
     let overlay = document.querySelector('.about__overlay');
 
     overlay.classList.add('shown');
@@ -9,7 +11,11 @@ window.addEventListener('DOMContentLoaded', () => {
         overlay.classList.add('hide');
         overlay.classList.remove('shown');
         btnAbout.style.position = 'relative';
-        btnAbout.style.top = '30px';
+        if (screenWidth <= 991) {
+            btnAbout.style.top = '10px';
+        } else {
+            btnAbout.style.top = '30px';
+        }
         btnAbout.innerHTML = 'Скрыть';
     }
 
@@ -40,7 +46,7 @@ window.addEventListener('DOMContentLoaded', () => {
           nextButton = document.querySelector('.arrows__arrow-next'),
           closeButton = document.querySelector('.services__btn_close');
 
-          let tnsSliders = [];
+    let tnsSliders = [];
 
     function initializeSlider(index = 0) {
         sliders[index].classList.add('services__slider_active');
@@ -59,22 +65,17 @@ window.addEventListener('DOMContentLoaded', () => {
             nextButton: nextButton,
             responsive: {
                 640: {
-                    edgePadding: 20,
                     gutter: 20,
                     items: 1
                 },
-                700: {
+                1200: {
                     gutter: 30
-                },
-                900: {
-                    items: 2
                 }
             }
         });
     }
 
     initializeSlider();
-
 
     closeButton.addEventListener('click', () => {
         sliderContainer.classList.add('services__sliders_hidden');
@@ -102,8 +103,9 @@ window.addEventListener('DOMContentLoaded', () => {
                 });
 
                 // Показываем соответствующий слайдер и активируем выбранный таб
-                sliders[index].classList.add('services__slider_active');
-                tabs[index].classList.add('services__tab_active');
+                sliderContainer.classList.remove('services__sliders_hidden');
+                sliders[index].classList.add('services__slider_active', 'fade');
+                tabs[index].classList.add('services__tab_active', 'fade');
 
 
                 if (tnsSliders[index]) {
@@ -115,13 +117,8 @@ window.addEventListener('DOMContentLoaded', () => {
                     initializeSlider(index);
                 }
 
-
-
                 updateButtonText();
-
-                // Скрываем блок с слайдерами
-                sliderContainer.classList.remove('services__sliders_hidden');
-                button.textContent = 'Скрыть';
+                
             }
         });
     });
@@ -137,14 +134,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }
       // Вызываем функцию для установки текста кнопки при загрузке страницы
     updateButtonText();
-
-    function updateSliderCounter(activeSlideIndex, totalSlides) {
-        const currentElement = document.getElementById('current');
-        const totalElement = document.getElementById('total');
-        
-        currentElement.textContent = activeSlideIndex.toString().padStart(2, '0');
-        totalElement.textContent = totalSlides.toString().padStart(2, '0');
-    }
     
     //slider #2
 
@@ -163,10 +152,7 @@ window.addEventListener('DOMContentLoaded', () => {
             nextButton: nextButtonExp
         });
 
-
         // slider 3
-
-        
 
         const slidersLast = document.querySelector('.lastslider__slider'),
               sliderContainerLast = document.querySelector('.lastslider__sliders'),
@@ -174,8 +160,7 @@ window.addEventListener('DOMContentLoaded', () => {
               prevButtonLast = document.querySelector('.lastslider__arrow-prev'),
               nextButtonLast = document.querySelector('.lastslider__arrow-next');
 
-
-        const tnsSlider = tns({
+        const tnsSliderLast = tns({
             container: slidersLast,
 			nav: false,
             items: 2,
@@ -204,7 +189,6 @@ window.addEventListener('DOMContentLoaded', () => {
         closeButtonLast.addEventListener('click', () => {
             sliderContainerLast.classList.add('lastslider__sliders_hidden');
         });
-    
 
     //modal
     

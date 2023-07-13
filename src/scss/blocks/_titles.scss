@@ -2,8 +2,7 @@
     text-transform: uppercase;
     font-size: 40px;
     font-weight: 600;
-    color: $darkblue;
-    width: 809px;
+    color: $darkblue;    
     &_white {
         color: $white;
     }
@@ -23,6 +22,7 @@
         font-size: 64px;
         line-height: 110%;
         color: $white;
+        width: 809px;
         span {
             font-weight: 400;
             font-size: 64px;
@@ -31,5 +31,6 @@
     }
     &_contacts {
         margin-bottom: 24px;
+        width: 100%;
     }
 }
